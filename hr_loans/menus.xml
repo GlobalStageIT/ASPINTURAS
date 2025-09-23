@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_hr_loan_global"
+                  name="Loan's"
+                  parent="hr_payroll_community.menu_hr_payroll_community_root"
+                  sequence="40"/>
+
+        <menuitem id="menu_hr_loan"
+                  name="Loan's"
+                  action="action_hr_loan"
+                  parent="menu_hr_loan_global"
+                  sequence="5"/>
+
+
+        <menuitem id="menu_hr_loan_configuration"
+                  name="Configuration"
+                  parent="menu_hr_loan_global"
+                  sequence="10"/>
+
+        <menuitem id="menu_hr_loan_type"
+                  name="Type"
+                  action="action_hr_loan_type"
+                  parent="menu_hr_loan_configuration"
+                  sequence="5"/>
+
+    </data>
+</odoo>

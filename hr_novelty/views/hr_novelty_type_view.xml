@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <record id="view_hr_novelty_type_tree" model="ir.ui.view">
+            <field name="name">hr.novelty.type.tree</field>
+            <field name="model">hr.novelty.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="factor"/>
+                    <field name="type" decoration-danger="type == 'deduction'" decoration-success="type == 'income'"
+                           widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_hr_novelty_type_form" model="ir.ui.view">
+            <field name="name">hr.novelty.type.form</field>
+            <field name="model">hr.novelty.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="type" invisible="1"/>
+                        <widget name="web_ribbon" title="Deduction" bg_color="bg-danger"
+                                invisible="type in ['income', False]"/>
+                        <widget name="web_ribbon" title="Income"
+                                invisible="type in ['dedcution', False]"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="apply_factor"/>
+                                <field name="factor" invisible="not apply_factor" required="apply_factor"/>
+                                <field name="self_calculating"/>
+                                <field name="type_calculation" invisible="not self_calculating" required="self_calculating"/>
+                            </group>
+                            <group>
+                                <field name="type"/>
+                                <field name="apply_date_end"/>
+                                <field name="apply_quantity"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="formula"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_novelty_type_search" model="ir.ui.view">
+            <field name="name">view.novelty.type.search</field>
+            <field name="model">hr.novelty.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="factor"/>
+                    <field name="type"/>
+                    <filter name="filter_income"
+                            string="Income"
+                            domain="[('type','=','income')]"/>
+                    <filter name="filter_deduction"
+                            string="Deduction"
+                            domain="[('type','=','deduction')]"/>
+                    <separator/>
+                    <group expand="0" string="Type">
+                        <filter name="groupby_type" context="{'group_by' : 'type'}" string="Type"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Define the action for the tree view -->
+        <record id="action_hr_novelty_type" model="ir.actions.act_window">
+            <field name="name">Novelty Type</field>
+            <field name="res_model">hr.novelty.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_hr_novelty_type_tree"/>
+            <field name="search_view_id" ref="view_hr_novelty_type_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first type of novelty of payslip.</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

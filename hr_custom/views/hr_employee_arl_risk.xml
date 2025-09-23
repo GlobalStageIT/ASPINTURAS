@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_employee_arl_risk_search_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.employee.arl.risk.search.hr_payroll_custom</field>
+            <field name="model">hr.employee.arl.risk</field>
+            <field name="arch" type="xml">
+                <search string="Clases de Riesgo">
+                    <field name="name" string="Clase"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_employee_arl_risk_form_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.employee.arl.risk.form.hr_payroll_custom</field>
+            <field name="model">hr.employee.arl.risk</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Riesgo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='name'/>
+                            </group>
+                            <group>
+                                <field name="contribution_percentage"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_arl_risk_tree_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.employee.arl.risk.tree.hr_payroll_custom</field>
+            <field name="model">hr.employee.arl.risk</field>
+            <field name="arch" type="xml">
+                <list string="Tipos de riesgos">
+                    <field name="name"/>
+                    <field name="contribution_percentage"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_hr_employee_arl_risk_hr_payroll_custom" model="ir.actions.act_window">
+            <field name="name">Tipos de Riesgos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.arl.risk</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="hr_employee_arl_risk_search_hr_payroll_custom"/>
+        </record>
+
+        <menuitem
+                id="menu_hr_employee_arl_risk"
+                action="action_hr_employee_arl_risk_hr_payroll_custom"
+                parent="hr.menu_human_resources_configuration"
+                sequence="5"
+        />
+
+    </data>
+</odoo>

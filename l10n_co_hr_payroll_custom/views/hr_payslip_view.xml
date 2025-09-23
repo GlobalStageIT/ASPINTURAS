@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_payslip_view_form_l10n_co_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.payslip.form.l10n_co_hr_payroll_custom</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="l10n_co_hr_payroll.hr_payslip_view_form_l10n_co_hr_payroll"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_compute_sheet']" position="after">
+                    <button string="Compute Total" name="compute_totals"
+                            type="object" invisible="state in ['done']" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//separator[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='earn_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//separator[4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='deduction_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_form_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_method_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

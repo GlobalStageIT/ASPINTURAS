@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="payslip_xlsx" model="ir.actions.report">
+        <field name="name">Payslip Report</field>
+        <field name="model">hr.payslip</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_custom.payslip_xlsx</field>
+        <field name="report_file">hr_payslip</field>
+        <field name="binding_model_id" ref="hr_payroll_community.model_hr_payslip"/>
+        <field name="binding_type">report</field>
+        <field name="attachment_use" eval="False"/>
+    </record>
+
+    <record id="report_billing_payroll_xlsx" model="ir.actions.report">
+        <field name="name">Payslip Report</field>
+        <field name="model">account.move</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_custom.report_billing_payroll_xlsx</field>
+        <field name="report_file">report_billing_payroll</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="attachment_use" eval="False"/>
+    </record>
+
+    <record id="report_settlement_xlsx" model="ir.actions.report">
+        <field name="name">Settlement Report</field>
+        <field name="model">hr.payslip</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_custom.report_settlement_xlsx</field>
+        <field name="report_file">hr_payslip</field>
+        <field name="binding_model_id" ref="hr_payroll_community.model_hr_payslip"/>
+        <field name="binding_type">report</field>
+        <field name="attachment_use" eval="False"/>
+    </record>
+
+</odoo>

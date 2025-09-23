@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_salary_rule_views_form_extend" model="ir.ui.view">
+        <field name="name">hr_salary_rule_views_form_extend</field>
+        <field name="model">hr.salary.rule</field>
+        <field name="inherit_id" ref="hr_payroll_account_community.hr_salary_rule_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="before">
+                <label for="type_concept" class="oe_edit_only" invisible="1"/>
+                <h2>
+                    <field name="type_concept" class="oe_edit_only" invisible="1"/>
+                </h2>
+            </xpath>
+            <xpath expr="//field[@name='account_tax_id']" position="after">
+                <field name="specific_struct_salary_ids">
+                    <list string="Estructura" editable="bottom">
+                        <field name="struct_id"/>
+                        <field name="account_debit"/>
+                        <field name="account_credit"/>
+                        <field name="analytic_account_id"/>
+                        <field name="company_id"/>
+                    </list>
+                </field>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="multiple_lines"/>
+                <field name="multiply_quantity"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

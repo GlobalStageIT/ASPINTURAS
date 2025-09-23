@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="hr_employee_view_form_hr_payroll_custom" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.hr_payroll_custom</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='identification_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='private_first_name']" position="before">
+                <field name="state"/>
+            </xpath>
+            <xpath expr="//group[1]" position="after">
+                <separator string="Affiliations"/>
+                <group>
+                    <group>
+                        <field name="eps"/>
+                        <field name="ccf"/>
+                        <field name="layoffs"/>
+                    </group>
+                    <group>
+                        <field name="pension"/>
+                        <field name="arl"/>
+                        <field name="arl_risk_id"/>
+                        <field name="arl_contribution_percentage"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="competencias" string="Competencias">
+                    <group>
+                        <group>
+                            <field name="show_card_fields" invisible="1"/>
+                            <field name="professional_card"/>
+                            <field name="card_number" invisible="show_card_fields == False"/>
+                            <field name="issue_date" invisible="show_card_fields == False"/>
+                        </group>
+                        <group>
+                            <field name="card_attachment" filename="card_filename"/>
+                            <field name="competencies"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <odoo>
+        <record id="hr_employee_tree_custom" model="ir.ui.view">
+            <field name="name">hr.employee.tree.custom</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='job_id']" position="replace"/>
+                <xpath expr="//field[@name='parent_id']" position="replace"/>
+                <xpath expr="//field[@name='department_id']" position="replace"/>
+                <xpath expr="//field[@name='activity_ids']" position="replace"/>
+                <xpath expr="//field[@name='activity_date_deadline']" position="replace"/>
+                <xpath expr="//field[@name='company_id']" position="replace"/>
+                <xpath expr="//field[@name='work_email']" position="replace"/>
+                <xpath expr="//field[@name='work_phone']" position="replace"/>
+                <xpath expr="field[@name='name']" position="before">
+                    <field name="state"/>
+                    <field name="image_128" widget="image" string="Imagen"/>
+                    <field name="company_id"/>
+                </xpath>
+                <xpath expr="field[@name='name']" position="after">
+                    <field name="job_id"/>
+                    <field name="private_type_document_identification_id" string="Tipo de identificacion"/>
+                    <field name="private_vat" string="Nº de identificacion"/>
+                    <field name="contract_department_id"/>
+                    <field name="parent_id" widget="many2one_avatar_user"/>
+                    <field name="contract_analytic_account_id"/>
+                    <field name="contract_type_id"/>
+                    <field name="contract_state" widget="badge"
+                           decoration-danger="contract_state == 'cancel'"
+                           decoration-warning="contract_state == 'close'"
+                           decoration-success="contract_state == 'open'"
+                    />
+                    <field name="contract_id"/>
+                    <field name="contract_start_date"/>
+                    <field name="contract_end_date"/>
+                    <field name="work_email"/>
+                    <field name="work_phone"/>
+                    <field name="private_email"/>
+                    <field name="private_phone"/>
+                    <field name="emergency_contact"/>
+                    <field name="emergency_phone"/>
+                    <field name="contract_wage"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_employee_filter_inherit_contract_group" model="ir.ui.view">
+            <field name="name">hr.employee.search.contract.group</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <!-- Insertar opciones al final del bloque Group By -->
+                <xpath expr="//group[filter[@name='group_job']]" position="after">
+                    <filter name="group_contract_type"
+                            string="Tipo de Contrato"
+                            domain="[]"
+                            context="{'group_by': 'contract_type_id'}"/>
+                    <filter name="group_contract_analytic"
+                            string="Cuenta Analítica"
+                            domain="[]"
+                            context="{'group_by': 'contract_analytic_account_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </odoo>
+</odoo>

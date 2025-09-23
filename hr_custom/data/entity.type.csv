@@ -1,0 +1,6 @@
+id,name,code
+entity_type_eps,EPS,eps
+entity_type_arl,ARL,arl
+entity_type_cesantias,Cesantías,cesantias
+entity_type_pension,Fondo de Pensiones,pension
+entity_type_caja,Caja de Compensación,caja

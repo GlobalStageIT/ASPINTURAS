@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_payslip_run_type_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.type.form</field>
+            <field name="model">hr.payslip.run.type</field>
+            <field name="arch" type="xml">
+                <form string="Hr Payslip Run Type">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="rule_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_payslip_run_type_list" model="ir.ui.view">
+            <field name="name">hr.payslip.run.type.list</field>
+            <field name="model">hr.payslip.run.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="rule_ids" widget="many2many_tags"/>
+                    <field name="company_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="hr_payslip_run_type_action" model="ir.actions.act_window">
+            <field name="name">Hr Payslip Run Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payslip.run.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new Tipo de Lote
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

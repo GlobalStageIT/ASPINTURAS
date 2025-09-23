@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_payroll_parameter_form_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.payroll.parameter.form.hr_payroll_custom</field>
+            <field name="model">hr.payroll.parameter</field>
+            <field name="arch" type="xml">
+                <form string="Hr Payroll Parameter">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="company_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Values" name="values">
+                                <field name="line_ids" nolabel="1">
+                                    <list editable="top" create="1" delete="1" multi_edit="1">
+                                        <field name="date_start" required="1"/>
+                                        <field name="date_end" required="1"/>
+                                        <field name="value" required="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_payroll_parameter_tree_hr_payroll_custom" model="ir.ui.view">
+            <field name="name">hr.payroll.parameter.tree.hr_payroll_custom</field>
+            <field name="model">hr.payroll.parameter</field>
+            <field name="arch" type="xml">
+                <list edit="1">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="company_ids"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="hr_payroll_parameter_action_hr_payroll_custom" model="ir.actions.act_window">
+            <field name="name">Hr Payroll Parameter</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.parameter</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new Payroll Parameter
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem action="hr_payroll_parameter_action_hr_payroll_custom" id="hr_payroll_parameter_menu"
+                  parent="hr_payroll_community.menu_hr_payroll_global_settings" sequence="5" name="Parameters"/>
+
+        <menuitem action="hr_payslip_run_type_action" id="hr_payslip_run_type_menu"
+                  parent="hr_payroll_community.menu_hr_payroll_global_settings" sequence="10" name="Payslip Run Type"/>
+
+        <menuitem action="hr_payroll_period_action" name="Payroll Period" id="hr_payroll_period_menu"
+                  parent="hr_payroll_community.menu_hr_payroll_global_settings" sequence="15"/>
+
+        <menuitem id="menu_rule_settings" name="Rules Settings"
+                  parent="hr_payroll_community.menu_hr_payroll_community_configuration"
+                  sequence="30" groups="base.group_no_one"/>
+
+        <menuitem id="hr_payroll_community.menu_hr_payroll_structure_view"
+                  action="hr_payroll_community.hr_payroll_structure_action"
+                  parent="menu_rule_settings" sequence="10" name="Structures"/>
+
+        <menuitem id="hr_payroll_community.menu_hr_salary_rule_category"
+                  action="hr_payroll_community.hr_salary_rule_category_action"
+                  parent="menu_rule_settings" sequence="20" name="Categories"/>
+
+        <menuitem id="hr_payroll_community.menu_action_hr_salary_rule_form"
+                  action="hr_payroll_community.hr_salary_rule_action"
+                  parent="menu_rule_settings" sequence="30" name="Rules"/>
+
+        <menuitem id="hr_payroll_community.menu_action_hr_contribution_register"
+                  action="hr_payroll_community.hr_contribution_register_action"
+                  parent="menu_rule_settings" sequence="40"/>
+
+        <menuitem id="hr_payment_frequency_menu" action="hr_payment_frequency_action" name="Payment Frequency"
+                  parent="menu_rule_settings" sequence="50"/>
+
+        <menuitem id="hr_payroll_community.menu_department_tree" name="Payslips"
+                  parent="hr_payroll_community.menu_hr_payroll_community_root"
+                  groups="hr_payroll_community.group_hr_payroll_community_user"/>
+
+        <menuitem id="menu_employee_payslips" name="Payslips"
+                  parent="hr_payroll_community.menu_department_tree"
+                  action="hr_payroll_community.hr_payslip_action" sequence="5"
+                  groups="hr_payroll_community.group_hr_payroll_community_user"/>
+
+        <menuitem action="hr_payroll_community.hr_payslip_run_action" id="hr_payroll_community.menu_hr_payslip_run"
+                  parent="hr_payroll_community.menu_department_tree" sequence="10" name="Batches"/>
+
+        <menuitem id="hr_payslip_line_menu" name="Payslip Lines" action="hr_payroll_custom.action_hr_payslip_line"
+                  parent="hr_payroll_community.menu_department_tree" sequence="15"/>
+
+    </data>
+</odoo>

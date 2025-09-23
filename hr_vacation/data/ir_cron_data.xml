@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_auto_post_draft_entry" model="ir.cron">
+        <field name="name">Vacation Book; Generate vacation provision daily.</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="model_id" ref="model_hr_vacation"/>
+        <field name="code">model._auto_provisioned_vacation()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>

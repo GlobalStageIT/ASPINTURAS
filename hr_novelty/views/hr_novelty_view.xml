@@ -1,0 +1,166 @@
+<odoo>
+    <data>
+
+        <record id="view_hr_novelty_tree" model="ir.ui.view">
+            <field name="name">hr.novelty.tree</field>
+            <field name="model">hr.novelty</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="novelty_type_id"/>
+                    <field name="employee_id"/>
+                    <field name="contract_id"/>
+                    <field name="date_start"/>
+                    <field name="quantity"/>
+                    <field name="value"/>
+                    <field name="state"/>
+                    <field name="type" decoration-danger="type == 'deduction'" decoration-success="type == 'income'"
+                           widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_hr_novelty_form" model="ir.ui.view">
+            <field name="name">hr.novelty.form</field>
+            <field name="model">hr.novelty</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_draft" class="oe_highlight" invisible="state not in ['pending_approval', 'approval', 'rejected']" string="Set To Draft"
+                                type="object" groups="hr_payroll_community.group_hr_payroll_community_user"/>
+                        <button name="action_pending_approval" class="oe_highlight" invisible="state != 'draft'"
+                                string="Pending Approval" type="object" groups="hr_payroll_community.group_hr_payroll_community_user"/>
+                        <button name="action_approval" class="btn-success" invisible="state != 'pending_approval'" string="Approval"
+                                type="object" groups="hr_payroll_community.group_hr_payroll_community_manager"/>
+                        <button name="action_rejected" class="btn-danger" invisible="state != 'pending_approval'" string="Rejected"
+                                type="object" groups="hr_payroll_community.group_hr_payroll_community_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="type" invisible="1"/>
+                        <widget name="web_ribbon" title="Deduction" bg_color="bg-danger"
+                                invisible="type in ['income', False]"/>
+                        <widget name="web_ribbon" title="Income"
+                                invisible="type in ['deduction', False]"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="Properties" string="Properties">
+                                <group>
+                                    <group>
+                                        <field name="company_id" options="{'no_create': True, 'no_edit':True}"
+                                               readonly="state != 'draft'"/>
+                                        <field name="employee_id" options="{'no_create': True, 'no_edit':True}"
+                                               readonly="state != 'draft'"/>
+                                        <field name="contract_id" domain="[('employee_id', '=', employee_id)]"
+                                               options="{'no_create': True, 'no_edit':True}"
+                                               readonly="state != 'draft'"/>
+                                        <field name="wage"/>
+                                    </group>
+                                    <group>
+                                        <field name="novelty_type_id" options="{'no_create': True, 'no_edit':True}"
+                                               readonly="state != 'draft'"/>
+                                        <field name="code"/>
+                                        <field name="apply_factor" invisible="True"/>
+                                        <field name="factor" invisible="not apply_factor"/>
+                                        <field name="type_calculation"
+                                               invisible="not type_calculation"/>
+                                        <field name="apply_quantity" invisible="1"/>
+                                        <field name="quantity" force_save="1"
+                                               invisible="not apply_quantity"
+                                               readonly="state != 'draft'"
+                                               required="apply_quantity"/>
+                                        <field name="apply_date_end" invisible="1"/>
+                                        <label for="date_start" string="Period"
+                                               invisible="not apply_date_end"/>
+                                        <div invisible="not apply_date_end" class="o_row">
+                                            <field name="date_start" readonly="state != 'draft'"/>
+                                            -
+                                            <field name="date_end" required="apply_date_end"
+                                                   readonly="state != 'draft'"/>
+                                        </div>
+                                        <field name="date_start" string="Date"
+                                               invisible="apply_date_end"
+                                               readonly="state != 'draft'"/>
+                                        <field name="value" readonly="state != 'draft'" required="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="formula"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_novelty_search" model="ir.ui.view">
+            <field name="name">view.novelty.search</field>
+            <field name="model">hr.novelty</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="novelty_type_id"/>
+                    <field name="employee_id"/>
+                    <field name="contract_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="type"/>
+                    <filter name="filter_income"
+                            string="Income"
+                            domain="[('type','=','income')]"/>
+                    <filter name="filter_deduction"
+                            string="Deduction"
+                            domain="[('type','=','deduction')]"/>
+                    <separator/>
+                    <filter name="filter_draft"
+                            string="Draft"
+                            domain="[('state','=','draft')]"/>
+                    <filter name="filter_pending_approval"
+                            string="Pending Approval"
+                            domain="[('state','=','pending_approval')]"/>
+                    <filter name="filter_rejected"
+                            string="Rejected"
+                            domain="[('state','=','rejected')]"/>
+                    <separator/>
+                    <filter name="date_start" string="Date Start" date="date_start"/>
+                    <filter name="date_end" string="Date End" date="date_end"/>
+                    <separator/>
+                    <group expand="0" string="Novelty's">
+                        <filter name="groupby_novelty_type_id" context="{'group_by' : 'novelty_type_id'}"
+                                string="Novelty Type"/>
+                    </group>
+                    <group expand="0" string="Employee">
+                        <filter name="groupby_employee_id" context="{'group_by' : 'employee_id'}" string="Employee"/>
+                    </group>
+                    <group expand="0" string="Contract">
+                        <filter name="groupby_contract_id" context="{'group_by' : 'contract_id'}" string="Contract"/>
+                    </group>
+                    <group expand="0" string="Type">
+                        <filter name="groupby_type" context="{'group_by' : 'type'}" string="Type"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Define the action for the tree view -->
+        <record id="action_hr_novelty" model="ir.actions.act_window">
+            <field name="name">Novelty</field>
+            <field name="res_model">hr.novelty</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_hr_novelty_tree"/>
+            <field name="context">{'search_default_groupby_novelty_type_id': True}</field>
+            <field name="search_view_id" ref="view_hr_novelty_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first novelty of payslip.</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

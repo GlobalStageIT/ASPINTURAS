@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mail_template_payslip" model="mail.template">
+            <field name="name">Payslip Template</field>
+            <field name="model_id" ref="hr_payroll_community.model_hr_payslip"/>
+            <field name="partner_to">{{object.employee_id.work_contact_id.id}}</field>
+            <field name="email_to">{{object.employee_id.work_email}}</field>
+            <field name="subject">Payslip: {{object.number}}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; font-size:14px; color:#333; line-height:1.6; padding:20px; border:1px solid #ddd; border-radius:8px;">
+
+                    <!-- Encabezado con logo -->
+                    <div style="text-align:center; margin-bottom:20px;">
+                        <img t-att-src="'data:image/png;base64,%s' % object.company_id.logo"
+                             alt="Company Logo"
+                             style="max-height:80px; margin-bottom:10px;"/>
+                        <br/>
+                        <span style="font-size:18px; font-weight:bold; color:#004080;">
+                            <t t-out="object.company_id.name"/>
+                        </span>
+                    </div>
+
+                    <!-- Saludo -->
+                    <p style="margin:0 0 15px 0;">Dear
+                        <strong>
+                            <t t-out="object.employee_id.name or ''"/>
+                        </strong>
+                        ,
+                    </p>
+
+                    <!-- Mensaje principal -->
+                    <p style="margin:0 0 15px 0;">
+                        Please find attached your payslip for the following period:
+                        <br/>
+                        <strong>
+                            <t t-out="object.date_from"/>
+                            –
+                            <t t-out="object.date_to"/>
+                        </strong>
+                        .
+                    </p>
+
+                    <!-- Nota de soporte -->
+                    <p style="margin:0 0 20px 0;">
+                        If you have any questions regarding this payslip, please do not hesitate to
+                        contact our <strong>HR / Accounting Department</strong>.
+                    </p>
+
+                    <!-- Despedida -->
+                    <p style="margin:0;">Best regards,</p>
+                    <p style="font-weight:bold; color:#004080; margin:0;">
+                        <t t-out="object.company_id.name"/>
+                    </p>
+                </div>
+
+            </field>
+            <field name="report_template_ids" eval="[(4, ref('hr_payroll_custom.hr_payslip_report_action_custom'))]"/>
+            <field name="lang">{{ object.employee_id.user_id.lang or object.company_id.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

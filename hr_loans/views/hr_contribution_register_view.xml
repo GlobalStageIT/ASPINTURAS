@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_contribution_register_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contribution.register.form.inherit</field>
+            <field name="model">hr.contribution.register</field>
+            <field name="inherit_id" ref="hr_payroll_community.hr_contribution_register_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="after">
+                    <group>
+                        <field name="is_novelty"/>
+                        <field name="type_novelty"
+                               invisible="not is_novelty" required="is_novelty"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

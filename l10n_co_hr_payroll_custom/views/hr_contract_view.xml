@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="hr_contract_view_form_l10n_co_hr" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.l10n_co_hr_payroll_custom</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="l10n_co_hr_payroll.hr_contract_view_form_l10n_co_hr_payroll"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type_contract_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='type_worker_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='subtype_worker_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='high_risk_pension']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='integral_salary']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <separator string="Edi Payslip"/>
+                    <group>
+                        <group>
+                            <field name="type_worker_id"/>
+                            <field name="subtype_worker_id"/>
+                        </group>
+                        <group>
+                            <field name="high_risk_pension"/>
+                            <field name="integral_salary"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
