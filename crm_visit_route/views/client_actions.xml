@@ -1,0 +1,7 @@
+<odoo>
+  <record id="action_gps_client_action" model="ir.actions.client">
+    <field name="name">Capturar coordenadas</field>
+    <field name="tag">crm_visit_route.gps_capture</field>
+    <field name="context">{}</field>
+  </record>
+</odoo>

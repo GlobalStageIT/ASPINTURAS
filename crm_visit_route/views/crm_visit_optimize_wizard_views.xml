@@ -1,0 +1,19 @@
+<odoo>
+  <record id="view_crm_visit_optimize_wizard" model="ir.ui.view">
+    <field name="name">crm.visit.optimize.wizard.form</field>
+    <field name="model">crm.visit.optimize.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Optimizar ruta">
+        <sheet>
+          <group>
+            <field name="visit_ids" widget="many2many_tags"/>
+          </group>
+        </sheet>
+        <footer>
+          <button string="Abrir ruta en Maps" type="object" name="action_optimize" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

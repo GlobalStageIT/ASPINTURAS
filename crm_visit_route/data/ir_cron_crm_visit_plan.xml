@@ -1,0 +1,12 @@
+<odoo>
+  <record id="ir_cron_crm_visit_plan_daily" model="ir.cron">
+    <field name="name">Generar visitas desde plantillas</field>
+    <field name="model_id" ref="model_crm_visit_plan"/>
+    <field name="state">code</field>
+    <field name="code">model.action_generate_today()</field>
+    <field name="active">True</field>
+    <field name="interval_type">days</field>
+    <field name="interval_number">1</field>
+    <field name="numbercall">-1</field>
+  </record>
+</odoo>

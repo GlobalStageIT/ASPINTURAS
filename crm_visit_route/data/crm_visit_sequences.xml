@@ -1,0 +1,8 @@
+<odoo>
+  <record id="seq_crm_visit" model="ir.sequence">
+    <field name="name">CRM Visit</field>
+    <field name="code">crm.visit</field>
+    <field name="prefix">VISIT/</field>
+    <field name="padding">4</field>
+  </record>
+</odoo>

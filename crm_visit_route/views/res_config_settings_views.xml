@@ -1,0 +1,27 @@
+<odoo>
+  <record id="res_config_settings_view_form_crm_visit_route" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.crm.visit.route</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@id='settings']//div[hasclass('settings')]" position="inside">
+        <div class="app_settings_block" data-string="Rutas de visitas" string="Rutas de visitas">
+          <h2>Rutas de visitas</h2>
+          <div class="row mt16 o_settings_container">
+            <div class="col-12 col-lg-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="crm_visit_route_travel_mode"/>
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="crm_visit_route_travel_mode"/>
+                <div class="text-muted">
+                  Modo de viaje usado para construir rutas en Google Maps.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>
