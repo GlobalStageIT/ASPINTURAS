@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+        <record id="hr_payroll_period_tree_hr_novelty" model="ir.ui.view">
+            <field name="name">hr.payroll.period.tree.lt_hr_vacation</field>
+            <field name="model">hr.payroll.period</field>
+            <field name="inherit_id" ref="hr_payroll_custom.hr_payroll_period_tree"/>
+            <field name="arch" type="xml">
+                <field name="date_end" position="after">
+                    <field name="novelty_date_start"/>
+                    <field name="novelty_date_end"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

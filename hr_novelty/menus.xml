@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_hr_novelty_global"
+                  name="Novelties"
+                  parent="hr_payroll_community.menu_hr_payroll_community_root"
+                  sequence="30"/>
+
+        <menuitem id="menu_hr_novelty"
+                  name="Novelties"
+                  action="hr_novelty.action_hr_novelty"
+                  parent="menu_hr_novelty_global"
+                  sequence="5"/>
+
+        <menuitem id="menu_hr_novelty_configuration"
+                  name="Configuration"
+                  parent="menu_hr_novelty_global"
+                  sequence="10"/>
+
+        <menuitem id="menu_hr_novelty_type"
+                  name="Type"
+                  action="hr_novelty.action_hr_novelty_type"
+                  parent="menu_hr_novelty_configuration"
+                  sequence="5"/>
+
+    </data>
+</odoo>

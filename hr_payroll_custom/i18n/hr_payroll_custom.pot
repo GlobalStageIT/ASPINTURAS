@@ -1,0 +1,1486 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_payroll_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-19 20:35+0000\n"
+"PO-Revision-Date: 2025-09-19 20:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "%s of %s for %s"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.report,print_report_name:hr_payroll_custom.hr_payslip_report_action_custom
+msgid "('Payslip - %s' % (object.employee_id.name))"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_contract_view_form_hr_payroll_custom
+msgid "/ hour"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_contract_view_form_hr_payroll_custom
+msgid "/ month"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid ""
+"1. Que el patrono ha incorporado en la presente liquidación los importes\n"
+"                                correspondientes a\n"
+"                                salarios, horas extras, descansos compensatorios, cesantías, vacaciones, prima de\n"
+"                                servicios,\n"
+"                                auxilio de transporte, y en sí, todo concepto relacionado con salarios, prestaciones o\n"
+"                                indemnizaciones causadas al quedar extinguido el contrato de trabajo."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid ""
+"2. Que con el pago del dinero anotado en la presente liquidación, queda transada\n"
+"                                cualquier\n"
+"                                diferencia relativa al contrato de trabajo extinguido, o a cualquier diferencia\n"
+"                                anterior. Por lo\n"
+"                                tanto, esta transacción tiene como efecto la terminación de las obligaciones\n"
+"                                provenientes de la\n"
+"                                relación laboral que existió entre"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2023
+msgid "2023"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2024
+msgid "2024"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2025
+msgid "2025"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2026
+msgid "2026"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2027
+msgid "2027"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__generate_payroll_period__year__2028
+msgid "2028"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:mail.template,body_html:hr_payroll_custom.mail_template_payslip
+msgid ""
+"<div style=\"font-family: Arial, sans-serif; font-size:14px; color:#333; line-height:1.6; padding:20px; border:1px solid #ddd; border-radius:8px;\">\n"
+"\n"
+"                    <!-- Encabezado con logo -->\n"
+"                    <div style=\"text-align:center; margin-bottom:20px;\">\n"
+"                        <img t-att-src=\"'data:image/png;base64,%s' % object.company_id.logo\" alt=\"Company Logo\" style=\"max-height:80px; margin-bottom:10px;\"/>\n"
+"                        <br/>\n"
+"                        <span style=\"font-size:18px; font-weight:bold; color:#004080;\">\n"
+"                            <t t-out=\"object.company_id.name\"/>\n"
+"                        </span>\n"
+"                    </div>\n"
+"\n"
+"                    <!-- Saludo -->\n"
+"                    <p style=\"margin:0 0 15px 0;\">Dear\n"
+"                        <strong>\n"
+"                            <t t-out=\"object.employee_id.name or ''\"/>\n"
+"                        </strong>\n"
+"                        ,\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Mensaje principal -->\n"
+"                    <p style=\"margin:0 0 15px 0;\">\n"
+"                        Please find attached your payslip for the following period:\n"
+"                        <br/>\n"
+"                        <strong>\n"
+"                            <t t-out=\"object.date_from\"/>\n"
+"                            –\n"
+"                            <t t-out=\"object.date_to\"/>\n"
+"                        </strong>\n"
+"                        .\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Nota de soporte -->\n"
+"                    <p style=\"margin:0 0 20px 0;\">\n"
+"                        If you have any questions regarding this payslip, please do not hesitate to\n"
+"                        contact our <strong>HR / Accounting Department</strong>.\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Despedida -->\n"
+"                    <p style=\"margin:0;\">Best regards,</p>\n"
+"                    <p style=\"font-weight:bold; color:#004080; margin:0;\">\n"
+"                        <t t-out=\"object.company_id.name\"/>\n"
+"                    </p>\n"
+"                </div>\n"
+"\n"
+"            "
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.generate_payroll_period
+msgid ""
+"<span colspan=\"4\" nolabel=\"1\">This wizard will generate period payslips for year and type\n"
+"                            selected.\n"
+"                        </span>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<span>No configurada</span>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>CECO</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Cargo</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Comprobante Número</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Cuenta Bancaria</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Fecha Desde</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Fecha Fin Contrato</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Fecha Hasta</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Fecha Inicio Contrato</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Motivo de retiro</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Neto a Pagar</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>No Identificación</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Nombre</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>N° Ticket</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>SE HACE CONSTAR:</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Tipo de contrato</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Total Deducciones</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Total Devengos</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Total Días Ausentismos</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "<strong>Total Días Laborados</strong>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid ""
+"<strong>________________________________</strong>\n"
+"                                    <br/>\n"
+"                                    El trabajador\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid ""
+"<strong>________________________________</strong>\n"
+"                                    <br/>\n"
+"                                    Por la empresa\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_needaction
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_exception_decoration
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_state
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_type_icon
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.actions.act_window,help:hr_payroll_custom.hr_payroll_parameter_action_hr_payroll_custom
+msgid "Add a new Payroll Parameter"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.actions.act_window,help:hr_payroll_custom.hr_payslip_run_type_action
+msgid "Add a new Tipo de Lote"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "Adjustment Entry"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Amount Type"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contract__rtefte_aportes_vol_pens_empleador
+msgid "Aporte para pensiones voluntarias"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__apply_compensation
+msgid "Apply Compensation"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_view_tree_hr_payroll_custom
+msgid "Approved"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid ""
+"As you installed the payroll accounting module you have to choose Debit and "
+"Credit account for at least one salary rule in the chosen Salary Structure."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_attachment_count
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.generate_payroll_period
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.server,name:hr_payroll_custom.action_cancel_hr_payslip_from_list
+msgid "Cancelar"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_view_tree_hr_payroll_custom
+msgid "Cancelled"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Cantidad"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__specific_struct_salary_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_salary_rule__specific_struct_salary_ids
+msgid "Causación especifica según estructura salarial"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_structure__company_id
+msgid "Choose Company for Payroll Structure"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__code
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__code
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_payment_frequency_search
+msgid "Code"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__company_ids
+msgid "Companies"
+msgstr "Compañias"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__company_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__company_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_structure__company_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__company_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__company_id
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_payroll_period_search
+msgid "Company"
+msgstr "Compañia"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Comprobante de Liquidación"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Comprobante de Nómina"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_view_tree_hr_payroll_custom
+msgid "Compute"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Concept"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.server,name:hr_payroll_custom.action_done_hr_payslip_from_list
+msgid "Confirmar"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Contract"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_contribution_register
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Contribution Register"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__contributor
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__contributor
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__contributor
+msgid "Contributor"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.actions.act_window,help:hr_payroll_custom.hr_payroll_period_action
+msgid "Create the first payroll period."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.actions.act_window,help:hr_payroll_custom.hr_payment_frequency_action
+msgid "Create the payment frequency."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__create_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__create_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__analytic_account_id
+msgid "Cuenta Analítica"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__account_credit
+msgid "Cuenta Crédito"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__account_debit
+msgid "Cuenta Débito"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__date_end
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_payroll_period_search
+msgid "Date End"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__date_from
+msgid "Date From"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__date_start
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_payroll_period_search
+msgid "Date Start"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__date_end
+msgid "Date end"
+msgstr "Fecha Fin"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__date_start
+msgid "Date start"
+msgstr "Fecha Inicio"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Days & Novelties"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_account_account__debit_account_payslip
+msgid "Debit Account Payslip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Deducciones"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__type_concept__deduction
+msgid "Deduction"
+msgstr "Deducción"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Deduction Details"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Deductions"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__deduction_detail_ids
+msgid "Deductions Table"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Descripción"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Detail Days"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Detalle de Días"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Devengos"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Devengos y Deducciones"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__display_name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payment_frequency__name__day
+msgid "Días"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__type_concept__earn
+msgid "Earn"
+msgstr "Devengado"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Employee"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Employees"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payslip_line__date_to
+msgid "End date for Payslip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_contract__rtefte_aportes_vol_pens_empleador
+msgid ""
+"Este es el aporte que el empleador hace a nombre del trabajador como aporte "
+"voluntario a pensiones obligatorias, diferente de los aportes a fondos de "
+"pensiones voluntarias que pueda hacer el trabajador por su cuenta"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_contract__rtefte_incentivo_vivienda
+msgid ""
+"Este es un incentivo que paga el empleador con destinación exclusiva para "
+"inversión en vivienda. Será contemplado como un ingreso laboral no "
+"prestacional. Solo influye en el cálculo de la retención en la fuente, de "
+"manera que debe estar ingresado en el campo de pago no salarial para que "
+"afecte la nómina como un ingreso."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_salary_rule_views_form_extend
+msgid "Estructura"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__struct_id
+msgid "Estructura Salarial"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "First Bi Weekly"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_follower_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_partner_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__activity_type_icon
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payment_frequency
+msgid "Frequencies of payroll periods"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__garnishment
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__garnishment
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__garnishment
+msgid "Garnishment"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.generate_payroll_period
+msgid "Generate"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_generate_payroll_period
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.generate_payroll_period
+msgid "Generate Payroll Period"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payslip_employees
+msgid "Generate Payslips for All Selected Employees"
+msgstr "Generar nóminas para todos los empleados seleccionados."
+
+#. module: hr_payroll_custom
+#. odoo-javascript
+#: code:addons/hr_payroll_custom/static/src/xml/base.xml:0
+msgid "Generate Periods"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "Generated Payroll Period"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Group By"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_account_account__group_payslip
+msgid "Grouped in Payslip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payroll_parameter
+msgid "HR Parameter"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payroll_parameter_line
+msgid "HR Parameter Values"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payslip_run_type
+msgid "HR Payslip Run Type"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__has_message
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_contract_view_form_hr_payroll_custom
+msgid "Hourly Wage"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.act_window,name:hr_payroll_custom.hr_payroll_parameter_action_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payroll_parameter_form_hr_payroll_custom
+msgid "Hr Payroll Parameter"
+msgstr "Parámetros de Nómina"
+
+#. module: hr_payroll_custom
+#: model:ir.actions.act_window,name:hr_payroll_custom.hr_payslip_run_type_action
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_run_type_form
+msgid "Hr Payslip Run Type"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_exception_icon
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__activity_exception_icon
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__message_needaction
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__message_has_error
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__message_has_sms_error
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__message_has_error
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__account_tax_id
+msgid "Impuesto"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contract__rtefte_incentivo_vivienda
+msgid "Incentivo empleador para vivienda"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Income"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Income Details"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__earn_detail_ids
+msgid "Income Table"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_contract
+msgid "Inheriting from hr.contract model to add fields"
+msgstr "Contrato del empleado"
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payslip
+msgid "Inheriting from hr.payslip model to add fields"
+msgstr "Nómina"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Input Data"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_is_follower
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__is_liquidation
+msgid "Is Liquidation"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid ""
+"It is not possible to account for the payroll, since it has an associated "
+"accounting entry."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid ""
+"It is not possible to execute payroll for the employee %s, the end date of "
+"the contract is less than the initial date of the payroll."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__write_uid
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__write_date
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__line_ids
+msgid "Lines"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "Liquidation"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__date_liquidation
+msgid "Liquidation Date"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__loan
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__loan
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__loan
+msgid "Loan"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payment_frequency__name__monthly
+msgid "Mensual"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_has_error
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "Monthly"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_resource_calendar__monthly_hours
+msgid "Monthly Hours"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__multiple_lines
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_salary_rule__multiple_lines
+msgid "Multiple Lines"
+msgstr "Multiple Lineas"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__multiply_quantity
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_salary_rule__multiply_quantity
+msgid "Multiply Quantity"
+msgstr "Multiplicar cantidad"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__my_activity_date_deadline
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter__name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__name
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_calendar_event_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_date_deadline
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_summary
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_type_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__message_needaction_counter
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__message_has_error_counter
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__other
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__other
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__other
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__type_concept__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Other Inputs"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__pila
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__pila
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__pila
+msgid "PILA"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contract__rtefte_pagos_dependientes
+msgid "Pago Dependientes"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contract__rtefte_pago_int_vivienda
+msgid "Pago Intereses de vivienda"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contract__rtefte_pagos_med_prepagada
+msgid "Pago Medicina Prepagada"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__parameter_id
+msgid "Parameter ID"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.ui.menu,name:hr_payroll_custom.hr_payroll_parameter_menu
+msgid "Parameters"
+msgstr "Parámetros"
+
+#. module: hr_payroll_custom
+#: model:ir.actions.server,name:hr_payroll_custom.action_draft_hr_payslip_from_list
+msgid "Pasar a borrador"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__pay_severance_interest
+msgid "Pay Severance Interest"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.act_window,name:hr_payroll_custom.hr_payment_frequency_action
+#: model:ir.ui.menu,name:hr_payroll_custom.hr_payment_frequency_menu
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payment_frequency_form
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_payroll_period_search
+msgid "Payment Frequency"
+msgstr "Frecuencia de Pago"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__payment_frequency_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__payment_frequency_id
+msgid "Payment frequency"
+msgstr "Frecuencia de Pago"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__payroll
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__payroll
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__payroll
+msgid "Payroll"
+msgstr "Nómina"
+
+#. module: hr_payroll_custom
+#: model:ir.actions.act_window,name:hr_payroll_custom.hr_payroll_period_action
+#: model:ir.ui.menu,name:hr_payroll_custom.hr_payroll_period_menu
+msgid "Payroll Period"
+msgstr "Periodo Nómina"
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payroll_period
+msgid "Payroll calculation periods"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.report,name:hr_payroll_custom.hr_payslip_report_action_custom
+msgid "Payslip Batch"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Lote de Nómina"
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "Línea de Nómina"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_line_pivot
+msgid "Payslip Line Analysis"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.act_window,name:hr_payroll_custom.action_hr_payslip_line
+#: model:ir.ui.menu,name:hr_payroll_custom.hr_payslip_line_menu
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Payslip Lines"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.ui.menu,name:hr_payroll_custom.hr_payslip_run_type_menu
+msgid "Payslip Run Type"
+msgstr "Tipo Ejecución Nómina"
+
+#. module: hr_payroll_custom
+#: model:mail.template,name:hr_payroll_custom.mail_template_payslip
+msgid "Payslip Template"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "Payslip of %s"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:mail.template,subject:hr_payroll_custom.mail_template_payslip
+msgid "Payslip: {{object.number}}"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.ui.menu,name:hr_payroll_custom.menu_employee_payslips
+msgid "Payslips"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__payroll_period_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run__payroll_period_id
+msgid "Period"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payment_frequency__name__bi_weekly
+msgid "Quincenal"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__rating_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.server,name:hr_payroll_custom.compute_sheet_hr_payslip_from_list
+msgid "Recalcular"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_specific_causation__rule_id
+msgid "Regla Salarial"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__release
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__release
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__release
+msgid "Release"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "Tiempo de trabajo de recursos"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__activity_user_id
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run_type__rule_ids
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: hr_payroll_custom
+#: model:ir.ui.menu,name:hr_payroll_custom.menu_rule_settings
+msgid "Rules Settings"
+msgstr "Configuración Reglas"
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "SALARIOS POR PAGAR"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__message_has_sms_error
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_salary_rule
+msgid "Salary Rule"
+msgstr "Regla de Salario"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Salary Rule Category"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_account_move_line__payroll_type_rule
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__payroll_type_rule
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_salary_rule__payroll_type_rule
+msgid "Salary Rule Type Payable"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "Salary Slip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_hr_payroll_structure
+msgid "Salary Structure"
+msgstr "Estructura Salarial"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__savings
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payslip_line__payroll_type_rule__savings
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_salary_rule__payroll_type_rule__savings
+msgid "Savings"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Search Payslip Lines"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "Second Bi Weekly"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contribution_register__field_id
+msgid "Seguridad Social Empleado"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_contribution_register__partner_from_employee_contract
+msgid "Seleccionar el partner desde el empleado"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__hr_payment_frequency__name__week
+msgid "Semanal"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.actions.server,name:hr_payroll_custom.action_senf_email_hr_payslip_from_list
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_view_tree_hr_payroll_custom
+msgid "Send Email"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields.selection,name:hr_payroll_custom.selection__account_move_line__payroll_type_rule__severance
+msgid "Severance"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payslip_line_search
+msgid "Slip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model,name:hr_payroll_custom.model_specific_causation
+msgid "Specific Causation"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__start_period
+msgid "Start Period"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payslip_line__date_from
+msgid "Start date for Payslip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__activity_state
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "The Expense Journal \"%s\" has not properly configured the %s Account!"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.constraint,message:hr_payroll_custom.constraint_hr_payroll_parameter_unique_code
+msgid "The code must be unique."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "The code parameter is necessary."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payslip.py:0
+msgid "The parameter %s does not exist."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "The year and the year of the beginning of the period must be the same."
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/models/hr_payroll_parameter.py:0
+msgid "There are multiple lines value in which the date range overlaps"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_view_tree_hr_payroll_custom
+msgid "To Draft"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid "Total"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Total Deduction"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Total Income"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Total Working Days"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Total Working Hours"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_run__type
+msgid "Type"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip_line__type_concept
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_salary_rule__type_concept
+msgid "Type concept"
+msgstr "Tipo de concepto"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_contract_view_form_hr_payroll_custom
+msgid "Type of fees"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__activity_exception_decoration
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_parameter_line__value
+msgid "Value"
+msgstr "Valores"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_payroll_parameter_form_hr_payroll_custom
+msgid "Values"
+msgstr "Valores"
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Values of Withholding"
+msgstr "Valores de la Retención"
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payment_frequency__website_message_ids
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payroll_period__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payment_frequency__website_message_ids
+#: model:ir.model.fields,help:hr_payroll_custom.field_hr_payroll_period__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/generate_payroll_period.py:0
+msgid "Weekly"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.view_hr_payslip_form_hr_payroll_custom
+msgid "Withholding"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.hr_contract_view_form_hr_payroll_custom
+msgid "Withholding Payslip"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_hr_payslip__ret_html
+msgid "Withholding Tax"
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model:ir.model.fields,field_description:hr_payroll_custom.field_generate_payroll_period__year
+msgid "Year"
+msgstr ""
+
+#. module: hr_payroll_custom
+#. odoo-python
+#: code:addons/hr_payroll_custom/wizard/hr_payslips_employees.py:0
+msgid "You must select employee(s) to generate payslip(s)."
+msgstr ""
+
+#. module: hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:hr_payroll_custom.report_report_payslip_custom
+msgid ""
+"y el trabajador, quienes declaran estar a paz y salvo por\n"
+"                                todo concepto."
+msgstr ""

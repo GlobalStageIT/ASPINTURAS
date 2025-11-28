@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_hr_vacation_novelty"
+                  action="action_hr_vacation_novelty"
+                  parent="hr_holidays.menu_hr_holidays_my_leaves"
+                  sequence="40"/>
+
+        <menuitem id="menu_hr_vacation_novelty_all_records"
+                  action="action_hr_vacation_novelty_all_records"
+                  parent="hr_holidays.menu_hr_holidays_management"
+                  sequence="30"/>
+
+        <menuitem id="menu_hr_vacation"
+                  name="Vacation Book"
+                  action="action_hr_vacation"
+                  parent="hr_holidays.menu_hr_holidays_management"
+                  sequence="40"/>
+        <menuitem
+            id="lt_hr_vacation_my_approvals"
+            name="My Approvals"
+            parent="hr_holidays.menu_hr_holidays_my_leaves"
+            action="hr_vacation.lt_hr_vacation_my_approvals_action"
+            sequence="50"/>
+    </data>
+</odoo>

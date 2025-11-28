@@ -1,0 +1,16 @@
+<odoo>
+    <record id="hr_resume_line_view_form_inherit_level" model="ir.ui.view">
+        <field name="name">hr.resume.line.form.inherit.level</field>
+        <field name="model">hr.resume.line</field>
+        <field name="inherit_id" ref="hr_skills.resume_line_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Insertar el campo education_level después de line_type_id -->
+            <xpath expr="//field[@name='line_type_id']" position="after">
+                <field name="is_education" invisible="1"/>
+                <field name="education_level" invisible="is_education == False"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+<odoo>
+  <record id="action_crm_visit_open_today_maps" model="ir.actions.server">
+    <field name="name">Ruta de visitas de hoy</field>
+    <field name="model_id" ref="model_crm_visit"/>
+    <field name="state">code</field>
+    <field name="code">action = model._action_open_maps_for_today_current_user()</field>
+  </record>
+</odoo>

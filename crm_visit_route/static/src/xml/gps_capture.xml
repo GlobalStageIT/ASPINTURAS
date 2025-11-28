@@ -1,0 +1,7 @@
+<templates xml:space="preserve">
+  <t t-name="crm_visit_route.GpsCapture">
+    <div class="o_crm_visit_gps_capture p-3">
+      <t t-esc="message"/>
+    </div>
+  </t>
+</templates>

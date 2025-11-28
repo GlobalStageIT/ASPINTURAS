@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_job_form_inherit_job_type" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.job.type</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <!-- Puedes ubicarlo según tu preferencia. Aquí se añade después del campo "name" -->
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="job_type"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

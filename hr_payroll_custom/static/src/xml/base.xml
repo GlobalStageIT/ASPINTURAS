@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+   <t t-name="generate_periods.ListView.Buttons" t-inherit="web.ListView.Buttons">
+       <xpath expr="//div[hasclass('o_list_buttons')]" position="after">
+           <button type="button" class="btn-primary btn" style="margin-left: 10px;" t-on-click="generatePayrollPeriod">
+               Generate Periods
+           </button>
+       </xpath>
+   </t>
+</templates>

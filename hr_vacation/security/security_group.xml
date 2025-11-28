@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data noupdate="0">
+        <record id="group_lt_hr_vacation_my_approvals" model="res.groups">
+            <field name="name">My Approvals</field>
+            <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+        </record>
+    </data>
+</odoo>

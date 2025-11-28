@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_hr_leave_global"
+                  name="Leaves"
+                  action="hr_holidays.hr_leave_action_action_approve_department"
+                  parent="hr_payroll_community.menu_hr_payroll_community_root"
+                  sequence="40"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_hr_vacation_novelty_list" model="ir.ui.view">
+        <field name="name">hr.novelty.list.hr_vacation</field>
+        <field name="model">hr.novelty</field>
+        <field name="arch" type="xml">
+            <list create="1" delete="0">
+                <field name="create_date" string="Application date" widget="date"/>
+                <field name="name" string="name"/>
+                <field name="novelty_type_id" string="novelty type"/>
+                <field name="employee_id" string="employee"/>
+                <field name="contract_id" string="contract"/>
+                <field name="date_start" string="date start"/>
+                <field name="quantity" string="quantity"/>
+                <field name="state" decoration-info="state == 'draft'" decoration-danger="state == 'rejected'"
+                       decoration-warning="state == 'pending_approval'" decoration-success="state == 'approval'"
+                       widget="badge" string="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_vacation_novelty_form" model="ir.ui.view">
+        <field name="name">hr.novelty.form</field>
+        <field name="model">hr.novelty</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" class="oe_inline" string="name"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page name="Properties" string="Properties">
+                            <group>
+                                <group>
+                                    <field name="company_id" readonly="1" options="{'no_open': True, 'no_create': True}" string="company"/>
+                                    <field name="create_date" string="application date"/>
+                                    <field name="novelty_type_id" readonly="1" options="{'no_open': True, 'no_create': True}" string="novelty type"/>
+                                    <field name="employee_id" readonly="1" options="{'no_open': True, 'no_create': True}" string="employee"/>
+                                    <field name="contract_id" options="{'no_open': True, 'no_create': True}"
+                                           domain="[('employee_id', '=', employee_id)]" string="Contract"/>
+                                    <field name="wage"/>
+                                    <field name="contract_food_aid"/>
+                                </group>
+                                <group>
+                                    <field name="form_vacation" widget="binary" filename="form_vacation_name"/>
+                                    <p>
+                                        Upload the THU-FOR-027 Vacation Financial Compensation Request form, available
+                                        in the
+                                        <a href="https://sig.linktic.com/users/login"
+                                           style="font-weight: bold; color: blue; text-decoration: underline;">SIG</a>.
+                                    </p>
+                                    <field name="form_vacation_name" invisible="1"/>
+                                    <field name="date_start" string="date start"/>
+                                    <field name="quantity" string="quantity"/>
+                                    <field name="s_value" readonly="1"/>
+                                    <field name="ns_value" readonly="1"/>
+                                    <field name="total_compensated" readonly="1"/>
+                                    <field name="value" readonly="1" force_save="1" string="value" invisible="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="formula"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_vacation_novelty" model="ir.actions.act_window">
+        <field name="name">Compensated Vacations</field>
+        <field name="res_model">hr.novelty</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="hr_novelty.view_hr_novelty_search"/>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_hr_vacation_novelty_list')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_hr_vacation_novelty_form')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data found.
+            </p>
+            <p>
+                Use this menu to get an overview of your Compensated Holidays.
+            </p>
+        </field>
+        <field name="domain">[('employee_id.user_id.id', '=', uid), ('novelty_type_id.is_vacation_compensated', '=', True)]</field>
+        <field name="context">{'is_vacation_compensated': True}</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="action_hr_vacation_novelty_all_records" model="ir.actions.act_window">
+        <field name="name">Compensated Vacations</field>
+        <field name="res_model">hr.novelty</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="hr_novelty.view_hr_novelty_search"/>
+        <field name="view_id" ref="view_hr_vacation_novelty_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data found.
+            </p>
+            <p>
+                Use this menu to get an overview of your Compensated Holidays.
+            </p>
+        </field>
+        <field name="domain">[('novelty_type_id.is_vacation_compensated', '=', True)]</field>
+        <field name="context">{}</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Define the action for the list view -->
+    <record id="hr_novelty.action_hr_novelty" model="ir.actions.act_window">
+        <field name="name">Novelty</field>
+        <field name="res_model">hr.novelty</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="hr_novelty.view_hr_novelty_tree"/>
+        <field name="context">{'search_default_groupby_novelty_type_id': True}</field>
+        <field name="search_view_id" ref="hr_novelty.view_hr_novelty_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create the first novelty of payslip.</p>
+        </field>
+    </record>
+
+
+</odoo>

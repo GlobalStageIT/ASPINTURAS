@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_specific_causation,specific_causation,model_specific_causation,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_hr_payroll_parameter,hr_payroll_parameter,model_hr_payroll_parameter,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_hr_payroll_parameter_line,hr_payroll_parameter_line,model_hr_payroll_parameter_line,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_hr_payroll_period,hr.payroll.period,model_hr_payroll_period,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_hr_payment_frequency,hr.payment.frequency,model_hr_payment_frequency,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_generate_payroll_period,generate.payroll.period,model_generate_payroll_period,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1
+access_hr_payslip_run_type,hr.payslip.run.type,model_hr_payslip_run_type,hr_payroll_community.group_hr_payroll_community_user,1,1,1,1

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="lt_hr_vacation_my_approvals_action" model="ir.actions.act_window">
+        <field name="name">My approvals</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">list,kanban,form,calendar,activity</field>
+        <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
+        <field name="context">{}</field>
+        <field name="domain">[('employee_id.coach_id.user_id', '=', uid),]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Meet the time off dashboard.
+            </p>
+            <p>
+                A great way to keep track on employee’s PTOs, sick days, and approval status.
+            </p>
+        </field>
+    </record>
+</odoo>

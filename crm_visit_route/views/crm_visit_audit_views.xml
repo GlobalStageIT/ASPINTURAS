@@ -1,0 +1,38 @@
+<odoo>
+  <!-- Acción específica de auditoría: solo visitas con check-in registrado -->
+  <record id="action_crm_visit_audit" model="ir.actions.act_window">
+    <field name="name">Auditoría de visitas</field>
+    <field name="res_model">crm.visit</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('checkin_time', '!=', False)]</field>
+  </record>
+
+  <!-- Menú bajo el menú raíz de rutas -->
+  <menuitem id="menu_crm_visit_audit"
+            name="Auditoría"
+            parent="crm_visit_route.menu_crm_visit_root"
+            action="action_crm_visit_audit"
+            sequence="40"/>
+
+  <!-- Vista lista específica para auditoría -->
+  <record id="view_crm_visit_audit_tree" model="ir.ui.view">
+    <field name="name">crm.visit.audit.tree</field>
+    <field name="model">crm.visit</field>
+    <field name="arch" type="xml">
+      <tree string="Auditoría de visitas">
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="user_id"/>
+        <field name="zone_id"/>
+        <field name="scheduled_date"/>
+        <field name="checkin_time"/>
+        <field name="checkin_lat"/>
+        <field name="checkin_lng"/>
+        <field name="checkout_time"/>
+        <field name="checkout_lat"/>
+        <field name="checkout_lng"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+</odoo>

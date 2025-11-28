@@ -1,0 +1,50 @@
+<odoo>
+  <record id="view_crm_visit_plan_tree" model="ir.ui.view">
+    <field name="name">crm.visit.plan.tree</field>
+    <field name="model">crm.visit.plan</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="active"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_crm_visit_plan_form" model="ir.ui.view">
+    <field name="name">crm.visit.plan.form</field>
+    <field name="model">crm.visit.plan</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_generate_today" type="object" string="Generar para hoy" class="btn-primary"/>
+        </header>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="user_id"/>
+            <field name="active"/>
+          </group>
+          <notebook>
+            <page string="Visitas">
+              <field name="line_ids">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="partner_id"/>
+                  <field name="zone_id"/>
+                  <field name="weekday"/>
+                  <field name="hour"/>
+                  <field name="duration_minutes"/>
+                  <field name="priority"/>
+                  <field name="interval_unit"/>
+                  <field name="interval_number"/>
+                  <field name="start_date"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
