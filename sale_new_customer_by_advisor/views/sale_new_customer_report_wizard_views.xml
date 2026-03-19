@@ -1,0 +1,18 @@
+<odoo>
+    <record id="wizard_form" model="ir.ui.view">
+        <field name="name">wizard.form</field>
+        <field name="model">sale.new.customer.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="advisor_id"/>
+                </group>
+                <footer>
+                    <button name="action_open_report" type="object" string="Abrir"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

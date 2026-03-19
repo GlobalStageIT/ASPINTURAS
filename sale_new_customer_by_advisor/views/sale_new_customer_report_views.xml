@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_list" model="ir.ui.view">
+        <field name="name">report.list</field>
+        <field name="model">sale.new.customer.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date_order_date"/>
+                <field name="order_name"/>
+                <field name="partner_id"/>
+                <field name="advisor_id"/>
+                <field name="amount_total"/>
+                <field name="new_customer_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_sale_new_customer_report" model="ir.actions.act_window">
+        <field name="name">Clientes Nuevos</field>
+        <field name="res_model">sale.new.customer.report</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>
