@@ -1,4 +1,4 @@
-from odoo import fields, models, _, api
+from odoo import fields, models, _, api, Command
 from odoo.exceptions import UserError
 from odoo.addons.hr_payroll_custom.utils import days360
 
@@ -63,7 +63,7 @@ class HrVacation(models.Model):
 
         # --- 1. Buscar contratos sin provisión ---
         self.env.cr.execute("""
-                    SELECT c.id, c.date_start, c.employee_id, c.company_id
+                    SELECT c.id, c.date_start, c.date_end, c.employee_id, c.company_id
                     FROM hr_contract c
                     JOIN hr_employee e ON c.employee_id = e.id
                     WHERE c.active = TRUE
@@ -73,14 +73,15 @@ class HrVacation(models.Model):
                           SELECT 1 FROM hr_vacation v WHERE v.contract_id = c.id
                       );
                 """)
-        missing_contracts = self.env.cr.fetchall()  # [(id, date_start, employee_id, company_id), ...]
+        missing_contracts = self.env.cr.fetchall()  # [(id, date_start, date_end, employee_id, company_id), ...]
 
         holiday_status_id = self.env['hr.leave.type'].search([('is_vacation', '=', True)], limit=1)
 
         leave_vals, vacation_vals = [], []
-        for contract_id, date_start, employee_id, company_id in missing_contracts:
-            worked_days = days360(date_start, today) + 1
-            provisioned = (worked_days / 30) * 1.25
+        for contract_id, date_start, date_end, employee_id, company_id in missing_contracts:
+            # un contrato ya terminado solo causa vacaciones hasta su fecha de fin
+            worked_days = days360(date_start, self._termination_date(date_end, today)) + 1
+            provisioned = (worked_days / 30) * 1.25 if worked_days > 0 else (1 / 30) * 1.25
 
             leave_vals.append({
                 'name': _("Vacation Provisioned"),
@@ -109,19 +110,23 @@ class HrVacation(models.Model):
 
         # --- 2. Actualizar balances de TODOS los contratos con provisión ---
         vacations = self.search([('date_start', '<=', today), '|',('contract_id.date_end', '!=', False), ('contract_id.date_end', '<=', today)])  # o limitar a activos
-        for record in vacations:
+        vacations._update_provisioned(today)
+
+    @api.model
+    def _termination_date(self, date_end, today):
+        """Las vacaciones se causan hasta hoy, o hasta el fin del contrato si ya terminó."""
+        return min(date_end, today) if date_end else today
+
+    def _update_provisioned(self, today):
+        for record in self:
             if not record.contract_id:
                 continue
 
             contract = record.contract_id
-            termination_date, liquidation = None, False
+            termination_date = self._termination_date(contract.date_end, today)
 
-            # fecha de liquidación si aplica
-            if contract.date_end:
-                termination_date = contract.date_end
-                liquidation = True
-            else:
-                termination_date = today
+            # fecha de liquidación solo si el contrato ya terminó
+            liquidation = bool(contract.date_end and contract.date_end <= today)
 
             # días no justificados
             self.env.cr.execute("""
@@ -138,6 +143,11 @@ class HrVacation(models.Model):
             # cálculo de días trabajados
             worked_days = (days360(contract.date_start, termination_date) + 1) - days_no_just
             provisioned = (worked_days / 30) * 1.25 if worked_days > 0 else (1 / 30) * 1.25
+
+            # employee_id de la asignación se recalcula desde employee_ids; si está vacío queda en NULL
+            allocation = record.leave_allocation_id
+            if allocation and record.employee_id and allocation.employee_ids != record.employee_id:
+                allocation.write({'employee_ids': [Command.set(record.employee_id.ids)]})
 
             # si es liquidación, cerrar allocation
             if liquidation:

@@ -8,7 +8,7 @@
 {
     'name': 'Modulo de Vacaciones',
     'icon': '/hr_vacation/static/description/icon.png',
-    'version': '1.0',
+    'version': '1.1',
     'summary': 'Modificaciones en el proceso de ausencias con vacaciones',
     'description': """
         Este módulo realiza cambios en el proceso y campos en las vacaciones provisionadas.
