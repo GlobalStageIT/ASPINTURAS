@@ -1,4 +1,4 @@
-from odoo import fields, models, _, api, Command
+from odoo import fields, models, _, api
 from odoo.exceptions import UserError
 from odoo.addons.hr_payroll_custom.utils import days360
 
@@ -143,11 +143,6 @@ class HrVacation(models.Model):
             # cálculo de días trabajados
             worked_days = (days360(contract.date_start, termination_date) + 1) - days_no_just
             provisioned = (worked_days / 30) * 1.25 if worked_days > 0 else (1 / 30) * 1.25
-
-            # employee_id de la asignación se recalcula desde employee_ids; si está vacío queda en NULL
-            allocation = record.leave_allocation_id
-            if allocation and record.employee_id and allocation.employee_ids != record.employee_id:
-                allocation.write({'employee_ids': [Command.set(record.employee_id.ids)]})
 
             # si es liquidación, cerrar allocation
             if liquidation:
